@@ -2,24 +2,24 @@ package round
 
 // Круглое отверстие
 type RoundHole struct {
-	radius int
+	radius float64
 }
 
 // Круглый колышек
 type RoundPeg struct {
-	radius int
+	radius float64
 }
 
 //
 //
 /* Functions for RoundHole*/
-func NewRoundHole(radius int) *RoundHole {
+func NewRoundHole(radius float64) *RoundHole {
 	return &RoundHole{
 		radius: radius,
 	}
 }
 
-func (r *RoundHole) GetRadius() int {
+func (r *RoundHole) GetRadius() float64 {
 	return r.radius
 }
 
@@ -30,12 +30,12 @@ func (r *RoundHole) Fits(peg RoundPeg) bool {
 //
 //
 /* Functions for RoundPeg*/
-func NewRoundPeg(radius int) *RoundPeg {
+func NewRoundPeg(radius float64) *RoundPeg {
 	return &RoundPeg{
 		radius: radius,
 	}
 }
 
-func (r *RoundPeg) GetRadius() int {
+func (r *RoundPeg) GetRadius() float64 {
 	return r.radius
 }

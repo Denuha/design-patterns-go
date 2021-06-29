@@ -2,15 +2,15 @@ package square
 
 // Квадратный колышек
 type SquarePeg struct {
-	width int
+	width float64
 }
 
-func NewSquarePeg(radius int) *SquarePeg {
+func NewSquarePeg(radius float64) *SquarePeg {
 	return &SquarePeg{
 		width: radius,
 	}
 }
 
-func (r *SquarePeg) GetWidth() int {
+func (r *SquarePeg) GetWidth() float64 {
 	return r.width
 }
