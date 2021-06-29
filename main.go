@@ -3,5 +3,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("hello")
+	fmt.Println("It looks as realization of design patterns")
 }
