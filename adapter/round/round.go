@@ -23,9 +23,13 @@ func (r *RoundHole) GetRadius() int {
 	return r.radius
 }
 
+func (r *RoundHole) Fits(peg RoundPeg) bool {
+	return r.GetRadius() >= peg.GetRadius()
+}
+
 //
 //
-/* Functions for RoundHole*/
+/* Functions for RoundPeg*/
 func NewRoundPeg(radius int) *RoundPeg {
 	return &RoundPeg{
 		radius: radius,
