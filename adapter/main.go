@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
+	squareAdapter "github.com/Denuha/design-patterns-go/adapter/adapter"
 	"github.com/Denuha/design-patterns-go/adapter/round"
 	"github.com/Denuha/design-patterns-go/adapter/square"
-	adapter "github.com/Denuha/design-patterns-go/adapter/square_adapter"
 )
 
 func main() {
@@ -16,14 +16,14 @@ func main() {
 	fmt.Println("fit rpeg1:", hole.Fits(*rpeg1)) // false
 	fmt.Println("fit rpeg2:", hole.Fits(*rpeg2)) // true
 
-	small_sqpeg := square.NewSquarePeg(5)
-	large_sqpeg := square.NewSquarePeg(10)
+	smallSqpeg := square.NewSquarePeg(5)
+	largeSqpeg := square.NewSquarePeg(10)
 
 	// hole.Fits(*small_sqpeg) // Ошибка компиляции, несовместимые типы
 
-	small_sqpeg_adapter := adapter.NewSquarePegAdapter(*small_sqpeg)
-	large_sqpeg_adapter := adapter.NewSquarePegAdapter(*large_sqpeg)
+	smallSqpegAdapter := squareAdapter.NewSquarePegAdapter(*smallSqpeg)
+	largeSqpegAdapter := squareAdapter.NewSquarePegAdapter(*largeSqpeg)
 
-	fmt.Println("fit small speg:", hole.Fits(small_sqpeg_adapter.RoundPeg)) // true
-	fmt.Println("fit large speg:", hole.Fits(large_sqpeg_adapter.RoundPeg)) // false
+	fmt.Println("fit small speg:", hole.Fits(smallSqpegAdapter.RoundPeg)) // true
+	fmt.Println("fit large speg:", hole.Fits(largeSqpegAdapter.RoundPeg)) // false
 }

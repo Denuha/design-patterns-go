@@ -1,4 +1,4 @@
-package square_adapter
+package adapter
 
 import (
 	"math"
