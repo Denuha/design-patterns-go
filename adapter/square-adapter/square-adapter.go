@@ -1,16 +1,17 @@
 package square_adapter
 
-import(
+import (
 	"github.com/Denuha/design-patterns-go/adapter/round"
 	"github.com/Denuha/design-patterns-go/adapter/square"
 )
-type SquarePegAdapter stuct {
+
+type SquarePegAdapter struct {
 	round.RoundPeg
 	peg square.SquarePeg
 }
 
 func NewSquarePegAdapter(peg square.SquarePeg) *SquarePegAdapter {
 	return &SquarePegAdapter{
-		peg = peg,
+		peg: peg,
 	}
 }
