@@ -5,9 +5,18 @@ type RoundHole struct {
 	radius float64
 }
 
+type IRoundHole interface {
+	GetRadius() float64
+	Fits(peg RoundPeg) bool
+}
+
 // Круглый колышек
 type RoundPeg struct {
 	radius float64
+}
+
+type IRoundPeg interface {
+	GetRadius() float64
 }
 
 //
@@ -23,7 +32,7 @@ func (r *RoundHole) GetRadius() float64 {
 	return r.radius
 }
 
-func (r *RoundHole) Fits(peg RoundPeg) bool {
+func (r *RoundHole) Fits(peg IRoundPeg) bool {
 	return r.GetRadius() >= peg.GetRadius()
 }
 

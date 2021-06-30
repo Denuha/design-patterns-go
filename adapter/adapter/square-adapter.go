@@ -8,19 +8,21 @@ import (
 )
 
 type SquarePegAdapter struct {
-	RoundPeg round.RoundPeg
-	peg      square.SquarePeg
+	peg square.SquarePeg
 }
 
-func NewSquarePegAdapter(peg square.SquarePeg) *SquarePegAdapter {
+type ISquarePegAdapter interface {
+	round.IRoundPeg // IRoundPeg contains interface with GetRadius()
+}
+
+func NewSquarePegAdapter(peg square.SquarePeg) ISquarePegAdapter {
 	return &SquarePegAdapter{
-		peg:      peg,
-		RoundPeg: *round.NewRoundPeg(float64(peg.GetWidth()) * math.Sqrt(2) / 2),
+		peg: peg,
 	}
 }
 
-// Хотелось реализовать с помощью данного метода (как бы реализуя наследование, но не получилось)
+// Здесь мы переопределяем функцию GetRadius() из IRoundPeg
 func (s *SquarePegAdapter) GetRadius() float64 {
 	// Pythagorean theorem
-	return 0 //float64(s.peg.GetWidth()) * math.Sqrt(2) / 2
+	return float64(s.peg.GetWidth()) * math.Sqrt(2) / 2
 }
