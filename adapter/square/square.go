@@ -5,6 +5,10 @@ type SquarePeg struct {
 	width float64
 }
 
+type ISquarePeg interface {
+	GetWidth() float64
+}
+
 func NewSquarePeg(radius float64) *SquarePeg {
 	return &SquarePeg{
 		width: radius,
