@@ -14,9 +14,9 @@ func main() {
 	myOS := "Windows"
 
 	if myOS == "Windows" {
-		dialog = models.NewWindowsDialog() // создаем кнопку для Виндовс
+		dialog = models.NewWindowsDialog() // создаем диалог для Виндовс
 	} else if myOS == "Web" {
-		dialog = models.NewHTMLDialog() // Создаем кнопку для Веб
+		dialog = models.NewHTMLDialog() // Создаем диалог для Веб
 	} else {
 		fmt.Printf("%v", errors.New("Unknown OS\n"))
 		return
